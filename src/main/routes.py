@@ -4,6 +4,8 @@ import os
 import pandas as pd
 import numpy as np
 
+from src.auth.decorator import token_required
+
 main = Blueprint('main', __name__)
 
 @main.route('/', methods=['GET', 'POST'])
@@ -12,6 +14,7 @@ def index():
     return 'Hello World!'
 
 @main.route('/predict', methods=['POST']) 
+@token_required
 def predict():
     # user_data = 2d array (1, 43)
     data = request.get_json()
