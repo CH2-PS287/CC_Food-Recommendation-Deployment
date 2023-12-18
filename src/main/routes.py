@@ -11,7 +11,7 @@ main = Blueprint('main', __name__)
 @main.route('/', methods=['GET', 'POST'])
 def index():
     # get request
-    return 'Hello World!'
+    return 'Food Recommendation API'
 
 @main.route('/predict', methods=['POST']) 
 @token_required
@@ -21,7 +21,7 @@ def predict():
     input = data.get('input_data')
 
     # load model
-    from tensorflow.keras.models import load_model
+    from keras.models import load_model
 
     models_dir = os.path.join(os.getcwd(), 'models')
     model_file_path = os.path.join(models_dir, 'food_model_1.h5')

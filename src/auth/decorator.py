@@ -15,7 +15,6 @@ def token_required(f):
 
         if 'Authorization' in request.headers:
             token = request.headers['Authorization'].split(' ')[1]
-            print(token)
         
         # return 401 if token is not passed
         if not token:
